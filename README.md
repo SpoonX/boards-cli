@@ -1,6 +1,6 @@
 # Boards-cli
 
-_An opinionated, no-nonsense boilerplate tool based on [Boards](www.npmjs.com/package/boards) and [Procurator](https://www.npmjs.com/package/procurator)._
+_An opinionated, no-nonsense boilerplate tool based on [Boards](https://www.npmjs.com/package/boards) and [Procurator](https://www.npmjs.com/package/procurator)._
 
 Simply tell me where you keep your templates, pass instructions through a tiny config file and I'll take care of the rest.
 
