@@ -1,3 +1,13 @@
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/RWOverdijk/boards-cli/compare/v2.0.2...v2.0.3) (2017-10-10)
+
+
+### Bug Fixes
+
+* **Runner:** identify partial paths ([5411456](https://github.com/RWOverdijk/boards-cli/commit/5411456))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/RWOverdijk/boards-cli/compare/v2.0.1...v2.0.2) (2017-10-10)
 
