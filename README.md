@@ -21,17 +21,17 @@ First, install the boards cli. `npm i -g boards-cli`
 ### Setting up
 
 1. Create a new directory called `templates` (you can change this later) in the root of your project.
-2. Create a template (`echo "Created {{name}}, hello {{who}}!" > templates/hello.hbs`)
+2. Create a template (`echo "Created {{name}}, hello {{who}}\!" > templates/hello.hbs`)
 3. Create a file in your project's root called `boards.js` with the following contents _(change to fit your project)_:
 
   ```js
     module.exports = {
       // Where will you kep your boilerplate templates?
       templateRoot: __dirname + '/templates',
-      
+
       // Where is your application's source located?
       appRoot: __dirname + '/src',
-    
+
       tasks: {
         hello: [{task: 'generate', template: 'hello.hbs', target: '{{pascalCased}}.js'}]
       }
@@ -105,10 +105,10 @@ Batching tasks looks like this (using the config we made in [Setting up](#settin
 module.exports = {
   // Where will you kep your boilerplate templates?
   templateRoot: __dirname + '/templates',
-  
+
   // Where is your application's source located?
   appRoot: __dirname + '/src',
-  
+
   tasks: {
     hello: [
       {task: 'generate', template: 'hello.hbs', target: '{{pascalCased}}.js'},
