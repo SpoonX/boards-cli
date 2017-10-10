@@ -16,7 +16,7 @@
   "author": "RWOverdijk <wesley@spoonx.nl>",
   "license": "MIT",
   "dependencies": {
-    "boards": "^2.0.0-1",
+    "boards": "^2.0.0",
     "ezon": "^1.0.0"
   },
   "devDependencies": {
