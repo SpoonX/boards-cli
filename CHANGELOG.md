@@ -1,3 +1,13 @@
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/RWOverdijk/boards-cli/compare/v2.0.4...v2.0.5) (2017-10-11)
+
+
+### Features
+
+* **project:** add upperCased as default parameter ([982b9a0](https://github.com/RWOverdijk/boards-cli/commit/982b9a0))
+
+
+
 <a name="2.0.4"></a>
 ## [2.0.4](https://github.com/RWOverdijk/boards-cli/compare/v2.0.3...v2.0.4) (2017-10-10)
 
