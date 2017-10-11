@@ -121,15 +121,65 @@ module.exports = {
 
 Now when running hello, two files will be created and one will be altered.
 
-## Templating
-
-Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
+### Parameters
 
 Out of the box you get the following parameters:
 
 - name
 - pascalCased
 - upperCased
+
+Do you need more? Pass them along with the command as explained in the [The command](#the-command) chapter.
+
+### Prepare
+
+It's also possible to manipulate your parameters before your task gets run, either for all the steps, or a specific one.
+
+#### Specific steps
+
+When preparing parameters for a specific part, you'll get a copy of the original parameters object.
+This means that all prepared changes are only applied within the context of that specific step.
+
+```js
+module.exports = {
+  tasks: {
+    hello: [
+      {
+        task: 'generate',
+        template: 'hello.hbs',
+        prepare: params => Object.assign(params, {foo: 'bar'}),
+        target: '{{foo}}.js', // Accessible
+      },
+    ]
+  }
+};
+```
+
+#### Complete task
+
+If you wish to manipulate the params for all steps following your prepare method, pass in a function as the task.
+This step passes the parameters by reference, so it affects all other steps.
+
+```js
+module.exports = {
+  tasks: {
+    hello: [
+      {task: params => Object.assign(params, {foo: 'bar'})},
+      {
+        task: 'generate',
+        template: 'hello.hbs',
+        target: '{{foo}}.js', // Accessible
+      }
+    ]
+  }
+};
+```
+
+_**Note:** All steps that follow this prepare step will be affected, the ones before it will not._
+
+## Templating
+
+Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
 
 ## License
 
