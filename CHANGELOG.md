@@ -1,3 +1,13 @@
+<a name="2.1.0-0"></a>
+# [2.1.0-0](https://github.com/RWOverdijk/boards-cli/compare/v2.0.6...v2.1.0-0) (2017-10-11)
+
+
+### Features
+
+* **Runner:** allow prepare step for params ([6c379ef](https://github.com/RWOverdijk/boards-cli/commit/6c379ef))
+
+
+
 <a name="2.0.6"></a>
 ## [2.0.6](https://github.com/RWOverdijk/boards-cli/compare/v2.0.5...v2.0.6) (2017-10-11)
 
