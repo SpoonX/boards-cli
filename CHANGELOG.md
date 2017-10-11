@@ -1,3 +1,13 @@
+<a name="2.0.6"></a>
+## [2.0.6](https://github.com/RWOverdijk/boards-cli/compare/v2.0.5...v2.0.6) (2017-10-11)
+
+
+### Bug Fixes
+
+* **Runner:** add upperCased param to target ([f054e81](https://github.com/RWOverdijk/boards-cli/commit/f054e81))
+
+
+
 <a name="2.0.5"></a>
 ## [2.0.5](https://github.com/RWOverdijk/boards-cli/compare/v2.0.4...v2.0.5) (2017-10-11)
 
