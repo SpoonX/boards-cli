@@ -125,6 +125,12 @@ Now when running hello, two files will be created and one will be altered.
 
 Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
 
+Out of the box you get the following parameters:
+
+- name
+- pascalCased
+- upperCased
+
 ## License
 
 MIT
