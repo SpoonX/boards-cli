@@ -1,6 +1,6 @@
 {
   "name": "boards-cli",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Effortless boilerplate code generation.",
   "bin": {
     "boards": "./index.js"
