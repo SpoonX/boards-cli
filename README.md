@@ -177,6 +177,31 @@ module.exports = {
 
 _**Note:** All steps that follow this prepare step will be affected, the ones before it will not._
 
+## defined tasks
+
+Using `definedTask` you can reuse other tasks you've defined (ha! it's in the name).
+This is especially useful to create reusable steps.
+
+```js
+module.exports = {
+  tasks: {
+    tinyTask: [
+      {task: 'modify', target: 'redux/foo.js', patch: {pattern: /];\s*module/, prepend: `  '{{name}}',\n`}},
+    ],
+    anotherTinyTask: [
+      {task: 'generate', template: 'hello.hbs', target: '{{pascalCased}}.js'},
+      {task: 'generate', template: 'hello2.hbs', target: '{{pascalCased}}2.js'},
+    ],
+    slightlyLargerTask: [
+      {definedTask: 'tinyTask'},
+      {definedTask: 'anotherTinyTask'},
+    ]
+  }
+};
+```
+
+Now you can run the tiny commands, or call them both at once by using the slightlyLargerTask!
+
 ## Templating
 
 Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
