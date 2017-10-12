@@ -1,3 +1,13 @@
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/SpoonX/boards-cli/compare/v2.2.1...v2.2.2) (2017-10-12)
+
+
+### Bug Fixes
+
+* **project:** allow nameless tasks to be run ([d77d096](https://github.com/SpoonX/boards-cli/commit/d77d096))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/SpoonX/boards-cli/compare/v2.2.0...v2.2.1) (2017-10-12)
 
