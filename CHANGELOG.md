@@ -1,3 +1,13 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/RWOverdijk/boards-cli/compare/v2.1.0-0...v2.1.0) (2017-10-12)
+
+
+### Features
+
+* **Runner:** allow reusing defined tasks in other tasks ([08328c6](https://github.com/RWOverdijk/boards-cli/commit/08328c6))
+
+
+
 <a name="2.1.0-0"></a>
 # [2.1.0-0](https://github.com/RWOverdijk/boards-cli/compare/v2.0.6...v2.1.0-0) (2017-10-11)
 
