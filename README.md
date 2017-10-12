@@ -202,6 +202,34 @@ module.exports = {
 
 Now you can run the tiny commands, or call them both at once by using the slightlyLargerTask!
 
+### Isolation
+
+By default, parameters are passed on to other tasks by reference.
+This means that changes made to the parameters by definedTasks are automatically passed on to the next task.
+ 
+You can disable this behavior by flagging a definedTask as `isolated`, meaning that parameter changes will only apply to that step.
+
+```js
+module.exports = {
+  tasks: {
+    tinyTask: [
+      {task: 'modify', target: 'redux/foo.js', patch: {pattern: /];\s*module/, prepend: `  '{{name}}',\n`}},
+    ],
+    anotherTinyTask: [
+      {task: params => {params.foo = 'bar'}},
+      {task: 'generate', template: 'hello.hbs', target: '{{pascalCased}}.js'},
+      {task: 'generate', template: 'hello2.hbs', target: '{{pascalCased}}2.js'},
+    ],
+    slightlyLargerTask: [
+      {definedTask: 'anotherTinyTask', isolated: true},
+      
+      // Param `foo` now doesn't exist in tinyTask.
+      {definedTask: 'tinyTask'},
+    ]
+  }
+};
+```
+
 ## Templating
 
 Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
