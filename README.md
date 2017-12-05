@@ -6,9 +6,9 @@ Simply tell me where you keep your templates, pass instructions through a tiny c
 
 Use me to:
 
-  - Generate boilerplate files (using a _really_ simple [templating language](https://www.npmjs.com/package/procurator)).
+- Generate boilerplate files (using a _really_ simple [templating language](https://www.npmjs.com/package/procurator)).
 - Alter existing files (like adding routes, or exports).
-- That's it. I don't do a lot, but I'm very good at what I do.
+- That's it. I don't do a lot (unless you teach me how), but I'm very good at what I do.
 
 ## Getting started
 
@@ -131,6 +131,8 @@ Out of the box you get the following parameters:
 
 Do you need more? Pass them along with the command as explained in the [The command](#the-command) chapter.
 
+Do you need to alter or manipulate parameters? Keep reading!
+
 ### Prepare
 
 It's also possible to manipulate your parameters before your task gets run, either for all the steps, or a specific one.
@@ -155,6 +157,8 @@ module.exports = {
 };
 ```
 
+_**Note: This also works for definedTasks. When used there, this automatically makes the task isolated.**_
+
 #### Complete task
 
 If you wish to manipulate the params for all steps following your prepare method, pass in a function as the task.
@@ -176,6 +180,31 @@ module.exports = {
 ```
 
 _**Note:** All steps that follow this prepare step will be affected, the ones before it will not._
+
+### Sync tasks
+
+Sometimes you want to create and edit files multiple times. One example is a redux/saga combo for API requests:
+
+```js
+module.exports = {
+  tasks: {
+    /* for the sake of brevity I'll omit the action and saga tasks from this example */ 
+    fullAction: [
+      { definedTask: 'action' },
+      { definedTask: 'saga' },
+    ],
+    
+    api: [
+      { definedTask: 'fullAction', sync: true },
+      { definedTask: 'fullAction', prepare: params => { params.type += 'Success'}, sync: true },
+      { definedTask: 'fullAction', prepare: params => { params.type += 'Failure'}, sync: true },
+    ],
+  }
+};
+```
+
+This would alter the same files three times, causing race conditions.
+By setting the sync flag, the steps will be executed in sequence, preventing race conditions from happening.
 
 ## defined tasks
 
@@ -208,6 +237,8 @@ By default, parameters are passed on to other tasks by reference.
 This means that changes made to the parameters by definedTasks are automatically passed on to the next task.
  
 You can disable this behavior by flagging a definedTask as `isolated`, meaning that parameter changes will only apply to that step.
+
+_**Note:** not needed when also using the `prepare` option._
 
 ```js
 module.exports = {
