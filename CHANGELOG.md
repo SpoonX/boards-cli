@@ -1,3 +1,24 @@
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/SpoonX/boards-cli/compare/v2.2.2...v3.0.0) (2017-12-05)
+
+
+### Features
+
+* **Runner:** add support for dynamicTask ([908f3c5](https://github.com/SpoonX/boards-cli/commit/908f3c5))
+* **Runner:** add sync tasks ([e4327c5](https://github.com/SpoonX/boards-cli/commit/e4327c5))
+
+
+### BREAKING CHANGES
+
+* **Runner:** Exceptions are no longer thrown. Instead, they're now
+rejected promises. The reason for this is to normalize the return value
+to a Promise and make the entire Runner.run more predictable.
+* **Runner:** Prepare is now always run, even for definedTasks. When
+returning anything of type object from prepare, it will replace the
+parameters in the chain. This is useful for simpel prepare changed.
+
+
+
 <a name="2.2.2"></a>
 ## [2.2.2](https://github.com/SpoonX/boards-cli/compare/v2.2.1...v2.2.2) (2017-10-12)
 
