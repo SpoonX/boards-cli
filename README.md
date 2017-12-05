@@ -261,6 +261,42 @@ module.exports = {
 };
 ```
 
+## Dynamic tasks
+
+Dynamic tasks allow you to supply the tasks "JIT" and async!
+This is useful when you need to, for instance, read out a dir or make an API call before you know the tasks.
+
+Make an API call, read a dir, query a database or ask for user input on the CLI.
+This task type adds a ton of possibilities
+
+Here's an example to blow your proverbial mind:
+
+```js
+const fs = require('fs');
+
+module.exports = {
+  tasks: {
+    specialTask: {
+      dynamicTask: params => new Promise((resolve, reject) => {
+        fs.readdir(__dirname + '/src/components', (error, files) => {
+          if (error) {
+            return reject(error);
+          }
+
+          params.entries = files;
+
+          resolve({definedTask: 'logEntries'});
+        });
+      })
+    },
+
+    logEntries: {task: parameters => console.log('Logging entries!\n\n', parameters.entries)},
+  }
+};
+```
+
+Now you can run `boards specialTask`. Whaaaaaat!? I know.
+
 ## Templating
 
 Templating uses [Procurator](https://www.npmjs.com/package/procurator). This means you have some flexibility in terms of defaults and variables. Also, it's just extremely fast.
