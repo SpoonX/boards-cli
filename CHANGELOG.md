@@ -1,3 +1,14 @@
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/SpoonX/boards-cli/compare/v3.0.0...v4.0.0) (2018-01-26)
+
+
+### Features
+
+* **project:** add glob and default presets ([b5da7e3](https://github.com/SpoonX/boards-cli/commit/b5da7e3))
+* **project:** add support for presets ([2424e37](https://github.com/SpoonX/boards-cli/commit/2424e37))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/SpoonX/boards-cli/compare/v2.2.2...v3.0.0) (2017-12-05)
 
