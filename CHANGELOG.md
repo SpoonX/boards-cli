@@ -1,3 +1,13 @@
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/SpoonX/boards-cli/compare/v4.0.0...v4.0.1) (2018-01-26)
+
+
+### Bug Fixes
+
+* **Runner:** load default preset and glob to target ([3da2b26](https://github.com/SpoonX/boards-cli/commit/3da2b26))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/SpoonX/boards-cli/compare/v3.0.0...v4.0.0) (2018-01-26)
 
