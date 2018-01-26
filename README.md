@@ -1,12 +1,15 @@
 # Boards-cli
 
+[![npm version](https://badge.fury.io/js/boards-cli.svg)](https://badge.fury.io/js/boards-cli)
+[![Gitter chat](https://badges.gitter.im/SpoonX/Dev.svg)](https://gitter.im/SpoonX/Dev)
+
 _An opinionated, no-nonsense boilerplate tool based on [Boards](https://www.npmjs.com/package/boards) and [Procurator](https://www.npmjs.com/package/procurator)._
 
 Simply tell me where you keep your templates, pass instructions through a tiny config file and I'll take care of the rest.
 
 Use me to:
 
-- Generate boilerplate files (using a _really_ simple [templating language](https://www.npmjs.com/package/procurator)).
+- Generate boilerplate files (using a _really_ simple [templating language](https://www.npmjs.com/package/procurator)) _(now supports glob!)_.
 - Alter existing files (like adding routes, or exports).
 - That's it. I don't do a lot (unless you teach me how), but I'm very good at what I do.
 
@@ -56,10 +59,55 @@ Some examples:
 * `boards redux user`
 * `boards class test 'className:TestClass,location:my/path'`
 
+## Presets
+
+Boards-cli now also supports presets! Install them in your project, or globally. It doesn't matter, because we use [Plugin Discover](https://github.com/spoonX/plugin-discovery) so we'll find your preset.
+
+[Click here](https://github.com/search?utf8=%E2%9C%93&q=boards-preset-&type=Repositories) to find out if there's already a preset for your favorite stack.
+
+Boards-CLI uses the [default presets](https://github.com/spoonX/boards-preset-default#tasks) as a dependency, so those are always available.
+
+_**Hint:** You can easily start creating your own preset by running: `boards default:preset myPreset`_
+
+### Running tasks
+
+Presets have their tasks documented in the readme. The command to run a preset task is identical to running a task from your project, with one difference: you prepend the preset name to the task.
+
+For example, let's say you have installed a preset called `user` which has a task called `create`, you'd execute the task like this:
+
+`boards user:create Bob`
+
+_**Hint:** If you want to list the specific tasks of a preset in your terminal, try running: `boards presetName:tasks`. Example: `boards user:tasks`_
+
+### Overriding preset tasks
+
+Overriding tasks that come with a preset is as simple as just defining it in your `tasks`. The key you use to override the task is the same as the key used to run the command.
+
+Here's an example overriding task `create` from preset `user`:
+
+```js
+module.exports = {
+  templateRoot: __dirname + '/templates',
+
+  appRoot: __dirname + '/src',
+
+  tasks: {
+   'user:create': () => {} // Noop, just used as example
+  }
+};
+```
+
+### Overriding templates
+
+Want to use a preset, but hate the default templates it comes with? No problem! Just override the template in your project and it'll be used, no configuration required.
+
+All you have to do is create a file in the exact same location relative to your `templateRoot`, and change the content.
+
 ## Tasks
 
 The cli only has 2 tasks available. Refreshing, isn't it?
-The cool thing is that you can batch them. This means a single task can perform multiple actions.
+
+The cool thing is that you can batch them. This means a single task can perform multiple actions. Every task has a couple of options that can be combined freely, giving you a lot of flexibility and possibilities. `<insert rainbow here>`.
 
 ### Generate
 
@@ -76,6 +124,36 @@ This allows you to generate a new file in your project.
   target: '{{pascalCased}}.reducers.js'
 }
 ```
+
+#### Generate glob
+
+It's also possible to batch-generate files using globs.
+These will all go through the templating engine allowing you to use variables.
+
+This method is particularly handy when initializing directories or projects.
+
+**Example:**
+
+```js
+{
+  // Just a regular glob task.
+  task: 'generate',
+
+  // Start glob in templateRoot/config/ as to not create the config dir in target
+  from: 'config',
+
+  // Copy all config files
+  glob: 'config/**/*',
+
+  // Path to target file. Where will we be putting the new files?
+  target: 'component/{{pascalCased}}/configuration'
+}
+```
+
+**Warning:** this comes with some downsides:
+
+1. The source and target paths need to be identical. You can't change file extension or location.
+2. The target needs to be a directory. If it's a filename, a directory using that name will be created.
 
 ### Modify
 
@@ -188,12 +266,12 @@ Sometimes you want to create and edit files multiple times. One example is a red
 ```js
 module.exports = {
   tasks: {
-    /* for the sake of brevity I'll omit the action and saga tasks from this example */ 
+    /* for the sake of brevity I'll omit the action and saga tasks from this example */
     fullAction: [
       { definedTask: 'action' },
       { definedTask: 'saga' },
     ],
-    
+
     api: [
       { definedTask: 'fullAction', sync: true },
       { definedTask: 'fullAction', prepare: params => { params.type += 'Success'}, sync: true },
@@ -235,7 +313,7 @@ Now you can run the tiny commands, or call them both at once by using the slight
 
 By default, parameters are passed on to other tasks by reference.
 This means that changes made to the parameters by definedTasks are automatically passed on to the next task.
- 
+
 You can disable this behavior by flagging a definedTask as `isolated`, meaning that parameter changes will only apply to that step.
 
 _**Note:** not needed when also using the `prepare` option._
@@ -253,7 +331,7 @@ module.exports = {
     ],
     slightlyLargerTask: [
       {definedTask: 'anotherTinyTask', isolated: true},
-      
+
       // Param `foo` now doesn't exist in tinyTask.
       {definedTask: 'tinyTask'},
     ]
