@@ -65,6 +65,8 @@ Boards-cli now also supports presets! Install them in your project, or globally.
 
 [Click here](https://github.com/search?utf8=%E2%9C%93&q=boards-preset-&type=Repositories) to find out if there's already a preset for your favorite stack.
 
+Boards-CLI uses the [default presets](https://github.com/spoonX/boards-preset-default#tasks) as a dependency, so those are always available.
+
 _**Hint:** You can easily start creating your own preset by running: `boards default:preset myPreset`_
 
 ### Running tasks
