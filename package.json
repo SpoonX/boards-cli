@@ -24,11 +24,14 @@
   "author": "RWOverdijk <wesley@spoonx.nl>",
   "license": "MIT",
   "dependencies": {
-    "boards": "^3.1.1",
+    "boards": "^3.1.2",
+    "boards-preset-default": "^1.0.0",
     "ezon": "^1.0.0",
     "file-exists": "^5.0.1",
+    "glob": "^7.1.2",
     "homefront": "^2.0.0",
-    "procurator": "^2.1.0"
+    "is-glob": "^4.0.0",
+    "procurator": "^2.2.0"
   },
   "devDependencies": {
     "conventional-changelog-cli": "^1.3.4"
