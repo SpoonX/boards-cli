@@ -65,7 +65,7 @@ Boards-cli now also supports presets! Install them in your project, or globally.
 
 [Click here](https://github.com/search?utf8=%E2%9C%93&q=boards-preset-&type=Repositories) to find out if there's already a preset for your favorite stack.
 
-Boards-CLI uses the [default presets](https://github.com/spoonX/boards-preset-default#tasks) as a dependency, so those are always available.
+Boards-CLI uses the [default presets](https://github.com/spoonX/boards-preset-default#tasks) as a dependency, so those tasks are always available.
 
 _**Hint:** You can easily start creating your own preset by running: `boards default:preset myPreset`_
 
@@ -227,7 +227,25 @@ module.exports = {
       {
         task: 'generate',
         template: 'hello.hbs',
-        prepare: params => Object.assign(params, {foo: 'bar'}),
+        prepare: params => Object.assign(params, {foo: 'bar'}), // using a function
+        target: '{{foo}}.js', // Accessible
+      },
+    ]
+  }
+};
+```
+
+Or simply return an object of parameters if you want a simple merge:
+
+
+```js
+module.exports = {
+  tasks: {
+    hello: [
+      {
+        task: 'generate',
+        template: 'hello.hbs',
+        prepare: {foo: 'bar'}, // Let boards do the merge for you
         target: '{{foo}}.js', // Accessible
       },
     ]
