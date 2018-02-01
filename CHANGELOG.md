@@ -1,3 +1,19 @@
+<a name="4.0.2"></a>
+## [4.0.2](https://github.com/SpoonX/boards-cli/compare/v4.0.1...v4.0.2) (2018-02-01)
+
+
+### Bug Fixes
+
+* **Runner:** use appropriate preset template directory ([ded4867](https://github.com/SpoonX/boards-cli/commit/ded4867))
+
+
+### Features
+
+* **Runner:** add default tasks task ([bcfbc4d](https://github.com/SpoonX/boards-cli/commit/bcfbc4d))
+* **Runner:** add tasks to params ([12fa16d](https://github.com/SpoonX/boards-cli/commit/12fa16d))
+
+
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/SpoonX/boards-cli/compare/v4.0.0...v4.0.1) (2018-01-26)
 

@@ -1,6 +1,6 @@
 {
   "name": "boards-cli",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "homepage": "https://github.com/SpoonX/boards-cli",
   "description": "Effortless boilerplate code generation.",
   "repository": {
