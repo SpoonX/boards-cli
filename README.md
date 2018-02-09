@@ -279,7 +279,13 @@ _**Note:** All steps that follow this prepare step will be affected, the ones be
 
 ### Sync tasks
 
-Sometimes you want to create and edit files multiple times. One example is a redux/saga combo for API requests:
+_**New:** You no longer have to worry about basic sync / async tasks. Boards-cli now automatically resolves most (disk) IO dependencies for you._
+
+Sometimes you want to create dynamic tasks that for example fetch data from third party APIs, so you can pass that info on to subsequent tasks.
+
+Boards-cli is smart, but not that smart. You'll have to help it out a bit by telling it to wait with the rest of the tasks until it's done.
+
+TL;DR; by marking a task as sync, you tell boards to let all the other tasks under it to wait until it finishes running.
 
 ```js
 module.exports = {
@@ -291,9 +297,10 @@ module.exports = {
     ],
 
     api: [
-      { definedTask: 'fullAction', sync: true },
-      { definedTask: 'fullAction', prepare: params => { params.type += 'Success'}, sync: true },
-      { definedTask: 'fullAction', prepare: params => { params.type += 'Failure'}, sync: true },
+      { dynamicTask: params => fetchRemoteConfigAndAddToParameters(params), sync: true },
+      { definedTask: 'fullAction' },
+      { definedTask: 'fullAction', prepare: params => { params.type += 'Success'} },
+      { definedTask: 'fullAction', prepare: params => { params.type += 'Failure'} },
     ],
   }
 };
