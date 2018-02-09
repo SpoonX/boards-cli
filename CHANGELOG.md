@@ -1,3 +1,13 @@
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/SpoonX/boards-cli/compare/v4.0.4...v4.1.0) (2018-02-09)
+
+
+### Features
+
+* **Runner:** add IO conflict resolution ([b770d2f](https://github.com/SpoonX/boards-cli/commit/b770d2f))
+
+
+
 <a name="4.0.4"></a>
 ## [4.0.4](https://github.com/SpoonX/boards-cli/compare/v4.0.3...v4.0.4) (2018-02-01)
 
