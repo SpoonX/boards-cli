@@ -1,3 +1,8 @@
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/SpoonX/boards-cli/compare/v4.1.0...v4.1.1) (2018-02-09)
+
+
+
 <a name="4.1.0"></a>
 # [4.1.0](https://github.com/SpoonX/boards-cli/compare/v4.0.4...v4.1.0) (2018-02-09)
 
