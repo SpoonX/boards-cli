@@ -125,6 +125,48 @@ This allows you to generate a new file in your project.
 }
 ```
 
+#### Generate simple copy
+
+Sometimes you just want to copy a file from A to B.
+Because that's such a simple command to perform, Boards-cli by default assumes a template.
+This means that copying without using the template engine is opt-in.
+
+**Example (simple):**
+
+```js
+{
+  // Just a regular glob task.
+  task: 'generate',
+
+  method: 'copy',
+
+  template: 'favicon.ico',
+
+  // Path to target file. Where will we be putting the new files?
+  target: '.'
+}
+```
+
+**Example (glob):**
+
+```js
+{
+  task: 'generate',
+
+  // Tell boards you want a simple copy.
+  method: 'copy',
+
+  // Start glob in templateRoot/config/ as to not create the config dir in target
+  from: 'config',
+
+  // Copy all config files
+  glob: 'config/**/*',
+
+  // Path to target file. Where will we be putting the new files?
+  target: 'component/{{pascalCased}}/configuration'
+}
+```
+
 #### Generate glob
 
 It's also possible to batch-generate files using globs.
