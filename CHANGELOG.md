@@ -1,3 +1,13 @@
+<a name="4.2.0"></a>
+# [4.2.0](https://github.com/SpoonX/boards-cli/compare/v4.1.1...v4.2.0) (2018-04-12)
+
+
+### Features
+
+* **project:** add CopyGenerator ([2e8c353](https://github.com/SpoonX/boards-cli/commit/2e8c353))
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/SpoonX/boards-cli/compare/v4.1.0...v4.1.1) (2018-02-09)
 
