@@ -1,3 +1,13 @@
+<a name="4.2.1"></a>
+## [4.2.1](https://github.com/SpoonX/boards-cli/compare/v4.2.0...v4.2.1) (2018-04-12)
+
+
+### Bug Fixes
+
+* **Runner:** use instruction instead of parameters ([93841d4](https://github.com/SpoonX/boards-cli/commit/93841d4))
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://github.com/SpoonX/boards-cli/compare/v4.1.1...v4.2.0) (2018-04-12)
 
