@@ -44,6 +44,8 @@ First, install the boards cli. `npm i -g boards-cli`
 4. Now you can run `boards hello someName who:you`.
 5. All done! You just generated a new file in src/SomeName.js
 
+**Note:** You can also run `boards hello someName --who=you` as the ezon format is optional.
+
 ## The command
 
 Running a command is simple, and allows for flexibility in terms of parameters.
@@ -52,7 +54,7 @@ Running a command is simple, and allows for flexibility in terms of parameters.
 
 * The name of the **task** _(property `hello` in your config's tasks)_ is the first argument. This is defined by you in the config. Use this to specify which task to run.
 * The **name** argument is second, and specifies the name of the _thing_ you want to generate. This is one of the default parameters available in your templates, and target name.
-* The **parameters** is the third and last argument. This will be passed in to the templates and can be used in the target name. The format used here is [ezon](https://www.npmjs.com/package/ezon), a super simple format. Just JSON with the (optional) possibility to leave out quotes, curly braces and such.
+* The **parameters** is the third and last argument. This will be passed in to the templates and can be used in the target name. The format used here is [ezon](https://www.npmjs.com/package/ezon) or [Minimist-style](https://www.npmjs.com/package/minimist) parameters. If your first argument is ezon, they can also be combined.
 
 Some examples:
 
