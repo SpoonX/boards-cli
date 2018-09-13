@@ -1,3 +1,13 @@
+<a name="4.3.0"></a>
+# [4.3.0](https://github.com/SpoonX/boards-cli/compare/v4.2.1...v4.3.0) (2018-09-13)
+
+
+### Features
+
+* **project:** add cli param support ([90477f7](https://github.com/SpoonX/boards-cli/commit/90477f7))
+
+
+
 <a name="4.2.1"></a>
 ## [4.2.1](https://github.com/SpoonX/boards-cli/compare/v4.2.0...v4.2.1) (2018-04-12)
 
